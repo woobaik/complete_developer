@@ -31,3 +31,24 @@ class Array
 end
 
 # (1..10).to_a.group_by_criteria {|x| x.even? }
+
+#
+# select
+
+class Array
+
+  def custom_select
+    selected_array = []
+    self.each do |x|
+      selected_array << x if yield(x)
+    end
+    selected_array
+  end
+end
+
+
+# find
+
+
+# any?
+# map
