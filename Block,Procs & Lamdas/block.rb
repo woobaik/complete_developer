@@ -49,6 +49,16 @@ end
 
 # find
 
+class Array
+  def custom_find
+    i = 0
+    while i < self.length
+      return self[i] if yield(self[i])
+      i += 1
+    end
+  end
+end
+
 
 # any?
 # map
