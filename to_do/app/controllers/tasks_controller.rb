@@ -24,9 +24,18 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find_by_id(params[:id])
   end
 
   def update
+    @task = Task.find_by_id(params[:id])
+    if @task.update(task_params)
+      flash[:notice] = "Your task has been updated."
+      redirect_to task_path(@task)
+    else
+      flash.now[:notice] = "There was something wrong with updating the task."
+      render 'edit'
+    end
   end
 
   def destroy
