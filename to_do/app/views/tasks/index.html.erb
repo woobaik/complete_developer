@@ -3,9 +3,13 @@
 <% @tasks.each do |task| %>
 
     <h2><%= task.title %></h2>
-    <h4><%= task.description %></h4>
-    <%= button_to 'Edit', edit_task_path(task), method: :get %>
-    <%= button_to 'Delete', task_path(task), method: :delete %>
+    <%= task.description %>
+    <%= link_to check_box_tag(:task, :complete, :completed),
+            "/tasks/#{task.id}/complete/#{!task.completed}" %>
+    <p>Completed? : <%= task.completed%></p>
+    <%= link_to button_tag('Show'), task_path(task)%>
+    <%= link_to button_tag('Edit'), edit_task_path(task)%>
+    <%= link_to button_tag('Delete'), task_path(task), method: :delete %>
     <hr>
 
 <% end %>
