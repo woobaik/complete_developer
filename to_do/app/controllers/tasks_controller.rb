@@ -18,7 +18,7 @@ class TasksController < ApplicationController
       flash[:notice] = "Your task has been posted."
       redirect_to task_path(@task)
     else
-      flash[:notice] = " There was something wrong with your request."
+      flash.now[:notice] = " There was something wrong with your request."
       render 'new'
     end
   end
