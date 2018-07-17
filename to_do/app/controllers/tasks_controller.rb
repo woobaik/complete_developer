@@ -16,7 +16,7 @@ class TasksController < ApplicationController
     else
       flash[:notice] = " There was something wrong with your request."
       render 'new'
-    end 
+    end
   end
 
   def edit
@@ -26,5 +26,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :description)
   end
 end
