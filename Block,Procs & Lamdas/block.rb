@@ -60,5 +60,30 @@ class Array
 end
 
 
-# any?
-# map
+cube = Proc.new { |x| x ** 3 }
+
+p cube.call(3)
+
+
+def methods_with_proc(p1, arg)
+  p1.call(arg)
+end
+
+p methods_with_proc(cube, 32)
+
+#& convert proc to block <=> proc
+
+p (1..10).map(&cube)
+
+
+procs = [
+  #standard procs
+  Proc.new {|x,y| p x + y},
+  proc {p "hello squirrels"},
+
+  #lambda (special types of proc)
+  lambda { |x| p x ** 2 },
+  ->(name) {puts "Hello " + name }
+]
+
+p procs
