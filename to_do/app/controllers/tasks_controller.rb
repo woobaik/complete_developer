@@ -4,6 +4,10 @@ class TasksController < ApplicationController
     @tasks = Task.all
   end
 
+  def show
+    @task = Task.find_by_id(params[:id])
+  end
+
   def new
     @task = Task.new
   end
@@ -12,7 +16,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       flash[:notice] = "Your task has been posted."
-      redirect_to task_path
+      redirect_to task_path(@task)
     else
       flash[:notice] = " There was something wrong with your request."
       render 'new'
