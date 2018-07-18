@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do |i|
-  Task.create({title: i.to_s + ' Hamie', description: 'I am hungry as hell'})
+  Task.create({title: i.to_s + ' Hamie', description: 'I am hungry as hell', user_id: 1})
 
 end
