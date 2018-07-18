@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+  get 'users/create'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/destroy'
   root to: 'tasks#index'
   resources :tasks
 
