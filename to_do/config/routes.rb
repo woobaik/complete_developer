@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get '/tasks/:id/complete/:completed', to: 'tasks#complete'
 
   #users
+  resources :users, except:[:index, :new, :create]
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
+
+
 
 
 
