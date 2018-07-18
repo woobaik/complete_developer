@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+haram = User.create(username: 'hamiee', password: 'hamiee')
+dave = User.create(username: 'dave', password: 'hamiee')
+blue = User.create(username: 'blue', password: 'hamiee')
 
-10.times do |i|
-  Task.create({title: i.to_s + ' Hamie', description: 'I am hungry as hell', user_id: 1})
-
-end
+haram.tasks.create(title: "Drop it like it is hot", description: "Wahatever")
+dave.tasks.create(title: "Hooooo", description: "Afreeca TV")

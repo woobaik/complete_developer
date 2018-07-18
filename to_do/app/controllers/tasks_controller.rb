@@ -1,9 +1,13 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    if current_user
+      @tasks = current_user.tasks.all
+    else
+      flash[:notice] = "please Log in or Sign Up"
+      redirect_to login_path
+    end
   end
-
   def show
     @task = Task.find_by_id(params[:id])
   end
@@ -19,6 +23,7 @@ class TasksController < ApplicationController
       redirect_to task_path(@task)
     else
       flash.now[:notice] = " There was something wrong with your request."
+      p @task.errors.full_messages
       render 'new'
     end
   end
