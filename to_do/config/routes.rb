@@ -2,19 +2,19 @@ Rails.application.routes.draw do
 
 
 
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
   root to: 'tasks#index'
   #tasks
   resources :tasks
   get '/tasks/:id/complete/:completed', to: 'tasks#complete'
 
   #users
-  resources :users, except:[:index, :new, :create]
+  resources :users, only: [:index, :new, :create]
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
 
+  resources :sessions, only: [:new, :create, :destroy]
+    get '/login', to: 'sessions#new'
+    get '/logout', to: 'sessions#destroy'
 
 
 
