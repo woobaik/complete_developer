@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-
+  
 
   root to: 'tasks#index'
   #tasks
   resources :tasks
-  get '/tasks/:id/complete/:completed', to: 'tasks#complete'
+  get '/tasks/:id/complete/:completed', to: 'tasks#complete', as: complete
 
   #users
   resources :users, only: [:index, :new, :create]
